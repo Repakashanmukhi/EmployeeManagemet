@@ -1,0 +1,66 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns:form="sap.ui.layout.form"
+          xmlns="sap.m"
+          xmlns:l="sap.ui.layout"
+          controllerName="employeemanagement.controller.View1"
+          displayBlock="true">
+    <Page id="page" showHeader="true" title="{i18n>title}">
+        <content>
+            <Bar>
+                <contentMiddle>
+                    <Text text="Employee Details" />
+                </contentMiddle>
+            </Bar>
+            <form:SimpleForm>
+                <form:content>
+                    <Label text="Employee ID" />
+                    <Input id="empId" editable="true" />
+               
+                    <Label text="Name" />
+                    <Input id="name" editable="true" liveChange="onValidateName"/>
+
+                    <Label text="Email" />
+                    <Input id="email" editable="true" />
+                    
+                    <Label text="Address" />
+                    <Input id="address" editable="true" />
+                    
+                    <Label text="Mobile No" />
+                    <Input id="mobileNo" editable="true" />
+                </form:content>
+            </form:SimpleForm>
+            <Button text="Submit" press=".Submitfun" />
+            <Button text="Reset" press=".Restfun" />
+            <Table headerText="Employee List" id="EmployeeTable" inset="false" items="{employeeModel>/Employees}">
+                <columns>
+                    <Column>
+                        <Text text="Employee ID" />
+                    </Column>
+                    <Column>
+                        <Text text="Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Email" />
+                    </Column>
+                    <Column>
+                        <Text text="Address" />
+                    </Column>
+                    <Column>
+                        <Text text="Mobile No" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{employeeModel>EmpId}" />
+                            <Text text="{employeeModel>Name}" />
+                            <Text text="{employeeModel>Email}" />
+                            <Text text="{employeeModel>Address}" />
+                            <Text text="{employeeModel>MobileNo}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
